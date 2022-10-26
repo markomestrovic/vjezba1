@@ -1,87 +1,117 @@
-# HCI-vježbe-2022-2023
+# Vježba 1: Inicijalizacija NextJS projekta i uvod u JS
 
-HCI repozitorij za vježbe
+Cilj ove vježbe je inicijalizirati NextJS projekt i upoznati se s Javascript jezikom.
 
-Svaka vježba u ovom repozitoriju predstavljena je s dva git brancha. Jedan git branch je početak vježbe, a drugi je riješena vježba.
-Tijekom rada na projektu uvijek radimo na početku vježbe i radimo skupa. Branch s riješenom vježbom služi vama za usporedbu i debugging u slučaju da zapnete. Slobodno možete "prepisivati" iz riješene vježbe, ali ne znam koliko to ima smisla ako je cilj učiti :)
+## Javascript ekosustav i NodeJS
 
-Branch naming je: `start|solved/vjezba-'broj'--'opis-vjezbe'`
-<br/>npr: <br/>
-`start/vjezba-1--nextjs-init`
-<br/>tj.<br/>
-`solved/vjezba-1--nextjs-init`
+Javascript ekosustav okolina je Javascripta koja se sastoji od biblioteka, softverskih paketa, editora i ostalih resursa koji omogućuju i olakšavaju razvoj JS aplikacija.
 
-Vježbe su raspoređene tematski. Dodatni materijali koje ubacimo u ovaj repozitorij bit će dodani u obliku git brancheva.  
-Ovdje su materijali starog Gatsby HCI projekta za 2019/2020. Pokušat ćemo pratiti sličan format.  
-https://github.com/kula124/HCi_2020_Fresh
+[Izvor](https://www.altexsoft.com/blog/engineering/javascript-ecosystem-38-tools-for-front-and-back-end-development/)
 
-Drugi materijali i resursi. Uzeto i ažurirano iz repozitorija iznad.  
-GIT:  
-https://github.com/kula124/HCi_2020_Fresh/tree/bonus--git-workflow  
-CSS:  
-https://github.com/kula124/HCi_2020_Fresh/tree/bonus--sytling-and-css
+U ovom poglavlju fokusirat ćemo se na _package manager_ aplikaciju koja omogućuje jednostavan i brz pristup repozitoriju gotovog koda kako ne bismo nepotrebno rješavali riješene probleme. Korištenje ovim paketima besplatno je jer su dani kao _open source_ softver.
 
-### YouTube is king
+Kao što znamo, Javascript je jezik koji se isključivo izvršava unutar _web_-pretraživača (Chrome, Firefox i sl.), međutim postoji run-time okruženje za pokretanje Javascript koda izvan okvira pretraživača, a to je okruženje **NodeJS**.
 
-Ovaj repozitorij je tekstualan. Kažu da je slika 1000 riječi, a video je 60 slika u sekundi.  
-Učenje je lakše kad gledate i slušate nekoga dok radi, nego kad čitate kako se to radi.  
-Svjesni smo tog nedostatka pa je uključen popis korisnih video materijala na [ispod](#l).
+## NodeJS
 
-### Pitajte što vam nije jasno često i uporno
+Pojednostavljeno, NodeJS je program koji može pokretati Javascript kod s tvrdog diska slično kao što Java run-time može pokrenuti Javu. Princip rada je jednostavan: NodeJS enkapsulira **V8** engine, što je upravo Javascript engine koji koristi Chrome pretraživač. Možemo reći da je NodeJS izvadio motor automobila i pokreće taj motor izvan automobila i koristi se njime za druge namjene. Ta namjena najčešće je _web_-server, stoga se NodeJS često zove "Javascript za servere". Način izvršavanja jako je sličan izvršavanju Java koda.
 
-Autor ovog repozitorija i koda je bivši student koji je prije četiri godine počeo učiti web development. Slobodno mi se obratite kao i bilo kojem drugom studentu.  
-Konkretan odgovor na konkretno pitanje je najbolji i najbrži način da naučite nešto.  
-Iskoristite to. Lakše je nego guglati.  
-Kontakt Email:
-ikulis00@fesb.hr  
-Ili direktnom porukom na Teams.
-Nemojte prestati pitati dok pitanje nije odgovoreno ili vam osoba koju pitate kaže "ne znam". Tada pitajte drugu osobu.
+ <div align="center">
+  <img src="https://www.freecodecamp.org/news/content/images/2019/06/1_sYPllpcAZLHmpuQSRPuO0Q.png" />
+ </div>
 
-## Vanjski sadržaji <a name="l"></a>
+Nećemo ulaziti detaljnije u izvedbu jer nije u okviru onog što se radi na ovom kolegiju, ali za one koje zanima ovdje je [izvor](https://www.freecodecamp.org/news/what-exactly-is-node-js-ae36e97449f5/).
 
-**Video resursi:**
+## NPM: Package manager
 
-- Uvod u React 30min [[YT](https://www.youtube.com/watch?v=hQAHSlTtcmY)]
-- What is NextJS (FireshipIO) 11min [[YT](https://www.youtube.com/watch?v=Sklc_fQBmcs)]
-- CSS: Općenito 20min [[YT](https://www.youtube.com/watch?v=1PnVor36_40)]
-- CSS: Flexbox 15min [[YT](https://www.youtube.com/watch?v=fYq5PXgSsbE)]
+Instalacija NodeJS-a neophodna je za rad s modernim Javascriptom čak i ako ne radimo serverske aplikacije. Jedan od razloga je _NPM_. NPM je **Node Package Manager**. To je dio instalacije NodeJS-a i JS ekosustava, a njegova svrha je instalacija softverskih paketa i upravljanje stablom ovisnosti paketa (dependency tree) što brže i efikasnije. NPM se može pozvati iz komandnog prozora nakon instalacije NodeJS-a. Koristit ćemo se njime da bi instalirali NextJS.
 
-**Gotov dizajn:**
+## Što je NextJS
 
-- Login Page Tailwind 17min [[YT](https://www.youtube.com/watch?v=KFr2UP6xaIM)]
-- Login page transparent 10min [[YT](https://www.youtube.com/watch?v=slu3pImFcRI)]
-- Landing page 30min [[YT](https://www.youtube.com/watch?v=HZv8YHYUHTU)]
+Ukratko, **NextJS** je metaframework za ReactJS za izradu full stack web aplikacija s mogućnostima SSR-a (Server Side Rendering). Početnicima to ne znači ništa pa pokušajmo ovako. NextJS je alat koji se naslanja na ReactJS i pojednostavljuje i poboljšava njegovo korštenje za neke primjene. Jedna od njih je ova koju ćemo raditi, a to je static/server side stranica. Primijetimo da je podjela Client/Server po sredini NextJS okvira na slici.
 
----
+<img src="https://nextjs.org/static/images/learn/foundations/next-app.png" />
 
-**Dizajn inspiracija:**  
- <https://www.webdesign-inspiration.com/>
+Bit će jasnije kad započnemo s radom, ali prije toga trebamo instalirati alate.
 
-<https://www.dtelepathy.com/blog/inspiration/23-great-examples-of-innovative-navigation-for-your-inspiration>
+## Instalacija
 
-<https://medium.theuxblog.com/design-trends-all-the-best-big-hero-image-136061191451>
+Potrebno je instalirati 3 stvari:
 
-**Youtube Shorts:**
+- Node i NPM (idu skupa)
+- Git
+- VSCode
 
-Steam:  
- <https://www.youtube.com/shorts/TmSIIR64yLQ>
+### NodeJS i NPM
 
-Rotten Tomatoes:  
- <https://www.youtube.com/shorts/5TCkjhG1TVU>
+Za _windows_ korisnike, potrebno je skinuti NodeJS instaler sa [službene stranice](https://nodejs.org/en/). Uvijek skidamo LTS verziju ("long term support"). Non-LTS verzije su **nešto kao** "beta" verzije.
 
-Quora video:  
- <https://www.youtube.com/watch?v=ohTsv00c_E4>
+Nakon instalacije, možemo potvrditi da je sve prošlo u redu koristeći terminal:
 
-**Gotov kod spreman za korištenje:**  
- Bootsrap za React  
- <https://react-bootstrap.github.io/>
+```bash
+$ node -v
+--
+$ npm -v
+```
 
-Styled Components  
- <https://styled-components.com/>
+Ako neka od naredbi daje _error_ umjesto verzije softvera, instalacija nije prošla uredno. Za Windows je čest _error_ da se `node.exe` ne doda u _system path variable_. Simptom je da se naredba "node" ne može pronaći (not found ili not recognized error). Problem je lako [riješiti](https://stackoverflow.com/questions/27864040/fixing-npm-path-in-windows-8-and-10).
 
-CSS animirani background:  
- <https://csspoint101.com/30-css-animated-background/>
+Kao i za sve na Windowsu, postoji setup.exe za instalaciju gita. Ovdje je [link](https://git-scm.com/download/win) za Windows setup file.
+Default postavke su u redu, ali treba paziti da je `add to your PATH` **označen**. Inače, doći će do problema opisanog ispod. Ako je sve prošlo u redu, `git --version` treba raditi:
 
-**Kontakt:**  
-Email: ikulis00@fesb.hr  
-MS Teams: Ivan Kuliš
+```bash
+$ git --version
+```
+
+Kao i kod Node-a moguće je da git.exe ne bude dodan u path. Problem se rješava istim [postupkom](https://www.computerhope.com/issues/ch000549.htm) kao i za Node. Stackoverflow pitanje [ovdje](https://stackoverflow.com/questions/31167181/adding-git-to-path-variable-cant-find-github-under-appdata-local)
+
+### VSCode (or not)
+
+U redu, sad je sve spremno, ali kako i gdje pišemo kod?
+
+Ne postoji ograničenje za korištenje editora, ali preporučuje se [VSCode](https://code.visualstudio.com/). Alternativa su [Atom](https://atom.io/) i [WebStorm](https://www.jetbrains.com/webstorm/), koji toplo preporučujem ako vam se ne sviđa VSCode. Inače se plaća, ali ga studenti FESB-a [mogu dobiti besplatno](https://www.jetbrains.com/community/education/#students). Smatra se najboljim editorom trenutačno, a u stopu ga slijedi VSCode.
+
+Za hardcore linuxaše preporučam NeoVIM sa TS/JS setupom.
+
+## NextJS instalacija
+
+Nikad lakša!
+
+1. U terminalu napravimo folder za projekt
+2. Uđemo u folder sa `cd folderName`
+3. Pratimo upute na linku ispod koje su zapravo samo  
+   `npx create-next-app@latest .`
+4. Ukoliko ste klonirali ovaj branch onda će README file smetati. Možemo ga izbrisati ili napraviti `npx create-next-app@latest noviFolder`
+
+Upute  
+https://nextjs.org/docs
+
+## Folder structure
+
+Službeno objašnjenje [Here](https://nextjs.org/docs/basic-features/pages), ali ukratko:
+
+1. `pages` folder: Tu se nalaze stranice naše aplikacije.
+2. `node_modules`: Sadrži sve potrebne pakete i module za rad NextJS-a uključujući React
+3. `public` folder će biti finalni kod aplikacije. Ovaj kod onda možemo pokrenuti ili prebaciti na USB, server ili neku drugu lokaciju za pohranu i serviranje naše stranice.
+4. `styles` sadrži globalni CSS
+5. `.nešto` datoteke su config datoteke za pojedine alate. Više o tome i ostalim folderima u daljnjem radu
+
+## Stvorimo novi page
+
+Unutar pages foldera stvorimo datoteku `moja-stranica.js`.
+
+Zalijepimo sljedeći kod unutra:
+
+```jsx
+import React from "react";
+
+const MojaStranica = () => (
+  <div>
+    <h1>Moja stranica</h1>
+  </div>
+);
+
+export default MojaStranica;
+```
+
+Ako u browseru idemo na `/moja-stranica` vidjet ćemo novu stranicu.
